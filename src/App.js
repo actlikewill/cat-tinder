@@ -1,18 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Home } from './Pages/Home'
-import { About } from './Pages/About'
+import * as Pages from './Pages'
+import { Provider } from 'react-redux'
+import { store } from './Services'
+
 import './App.css'
 
 
 const App = () => {
 
   const routes = [
-    { path: '/', element: <Home /> },
-    { path: '/about', element: <About /> }
+    { path: '/', element: <Pages.Home /> },
+    { path: '/about', element: <Pages.About /> }
   ]
 
 
   return (
+    <Provider store={store}>
         <BrowserRouter>
           <Routes>
             {routes.map(({ path, element }) => (
@@ -20,6 +23,7 @@ const App = () => {
             ))}
           </Routes>
         </BrowserRouter>
+    </Provider>
   );
 }
 
