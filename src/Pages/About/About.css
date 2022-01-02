@@ -1,3 +1,10 @@
-.about-heading {
+.about-heading, .about-text {
   color: white;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

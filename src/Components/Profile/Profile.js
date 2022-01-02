@@ -1,29 +1,35 @@
 import { useEffect, useState } from "react";
-import { getProfile, getVotes, addVotes } from "../../Services"
+import { nanoid } from "nanoid"
+import { getProfile, getVotes, addVotes, clearAddVote } from "../../Services"
 import { useSelector, useDispatch } from "react-redux"
 import { Heart, ThumbsDown, ThumbsUp } from ".."
+
 
 import "./Profile.css"
 
 export const Profile = () => {
     const profile = useSelector(state => state.profile)
-    const votes = useSelector(state => state.votes)
-
+    const addVote = useSelector(state => state.addVotes)
+    const [voteStatus, setVoteStatus] = useState()
+    const [hover, setHover] = useState(null)
     const dispatch = useDispatch()
 
     useEffect(() => {
+      dispatch(clearAddVote())
       dispatch(getProfile())
     }, [])
 
     useEffect(() => {
-      const localVotes = localStorage.getItem("likes")
-      if (!localVotes) {
-      dispatch(getVotes())
+      const { status } = addVote
+      if (status === "succeeded") {
+        setVoteStatus('Liked')
+      } else if (status === "loading") {
+        setVoteStatus('...')
+      } else {
+        setVoteStatus('')
       }
-    }, [])
+    }, [addVote])
 
-    const [vote, setVote] = useState(0)
-    const [hover, setHover] = useState(null)
 
 
     const handleHover = (e) => {
@@ -35,13 +41,27 @@ export const Profile = () => {
     }
 
     const handleVote = (e) => {
-      if (e.target.id === "thumbs-up") {
-        dispatch(addVotes({id:profile.data.id, vote:1}))
-      }
-      if (e.target.id === "thumbs-down") {
-        dispatch(addVotes({id:profile.data.id, vote:-1}))
+
+      let userSubId = localStorage.getItem("userSubId")
+
+      // Set new id if none is present in local storage!!
+      if (!userSubId) {
+        userSubId = nanoid()
+        localStorage.setItem("userSubId", userSubId)
       }
 
+      if (e.target.id === "thumbs-up") {
+        dispatch(addVotes({image_id:profile.data.id, value:1, sub_id: userSubId}))
+      }
+      if (e.target.id === "thumbs-down") {
+        dispatch(addVotes({image_id:profile.data.id, value:-1, sub_id: userSubId}))
+      }
+
+    }
+
+    const showNext = () => {
+      dispatch(getProfile())
+      dispatch(clearAddVote())
     }
 
     return (
@@ -57,7 +77,7 @@ export const Profile = () => {
               <ThumbsUp hover={hover} />
             </button>
 
-            <span className="vote-count">{vote}</span>
+            <span className="vote-count">{ voteStatus }</span>
 
             <button 
                 id="thumbs-down" 
@@ -77,16 +97,17 @@ export const Profile = () => {
         <div>
           <div className="profile-header">
             <div className="profile-name">
-              <h2>{profile.status}</h2>
+              <h2 className="profile-id">{profile.status === 'succeeded' ? profile.data.id : '...'}</h2>
             </div>
             <div>
-              <button className="next-button" onClick={() => dispatch(getProfile())}>Next</button>
+              <button className="next-button" onClick={showNext}>Next</button>
             </div>
           </div>   
           
             <div className="profile-image">
               {
-                profile.status === 'loading'? <h5 className="loading">loading...</h5> : <img className="image" src={profile.data.url} alt="cat" />
+                profile.status === 'loading'? <h5 className="loading">loading...</h5> 
+                : <img className="image" src={profile.data.url} alt="cat" />
               }
             </div>
         </div>

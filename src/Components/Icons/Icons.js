@@ -1,5 +1,3 @@
-import { useEffect } from "react"
-
 export const Heart = ({ hover }) => {
   return (
     <svg x="0px" y="0px" id="heart-icon"
@@ -23,7 +21,6 @@ export const ThumbsDown = ({ hover }) => {
       <path fill={`${hover === "thumbs-down" ? 'red' : 'white'}`} d="M30,16V9a7.0078,7.0078,0,0,0-7-7H2V16H8.4648l3.5774,5.3662.8453,5.9165A2.0094,2.0094,0,0,0,14.8672,29H17a3.0033,3.0033,0,0,0,3-3V20h6A4.0045,4.0045,0,0,0,30,16ZM8,14H4V4H8Zm20,2a2.0025,2.0025,0,0,1-2,2H18v8a1.0008,1.0008,0,0,1-1,1H14.8672l-.9094-6.3662L10,14.6973V4H23a5.0057,5.0057,0,0,1,5,5Z"/>
       <rect id="_Transparent_Rectangle_" fill="none" data-name="&lt;Transparent Rectangle&gt;" width="32" height="32"/>
     </svg>
-
   )
 }
 
@@ -34,6 +31,5 @@ export const ThumbsUp = ({ hover }) => {
       <path fill={`${hover === "thumbs-up" ? 'green' : 'white'}`}d="M26,12H20V6a3.0033,3.0033,0,0,0-3-3H14.8672a2.0094,2.0094,0,0,0-1.98,1.7173l-.8453,5.9165L8.4648,16H2V30H23a7.0078,7.0078,0,0,0,7-7V16A4.0045,4.0045,0,0,0,26,12ZM8,28H4V18H8Zm20-5a5.0057,5.0057,0,0,1-5,5H10V17.3027l3.9578-5.9365L14.8672,5H17a1.0008,1.0008,0,0,1,1,1v8h8a2.0025,2.0025,0,0,1,2,2Z" transform="translate(0 0)"/>
       <rect fill="none" id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" width="32" height="32"/>
     </svg>
-
   )
 }

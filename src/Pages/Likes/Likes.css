@@ -1,3 +1,31 @@
+.likes-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.likes-heading-container {
+  min-width: 48rem;
+}
+
 .likes-heading {
+  margin-left: 1rem;
   color: white;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 48rem;
+}
+
+.liked-image {
+  width: 15rem;
+  height: 15rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: .2rem;
 }

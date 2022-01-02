@@ -3,10 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 export const getProfile = createAsyncThunk('profile/getProfile', async () => {
   return fetch('https://api.thecatapi.com/v1/images/search')
     .then(response => response.json())
-  
 })
-
-
 
 export const catProfileSlice = createSlice({
   name: 'catProfile',

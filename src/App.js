@@ -2,9 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import * as Pages from './Pages'
 import { Provider } from 'react-redux'
 import { store } from './Services'
-
 import './App.css'
-
 
 const App = () => {
 

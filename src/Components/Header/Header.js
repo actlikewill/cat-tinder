@@ -9,11 +9,12 @@ export const Header = () => {
         </Link>
       <nav>
         <ul>
-          <li>
-            <Link to="/likes">My Likes</Link>
+          <li className="">
+            <Link className="link" to="/likes">My Likes</Link>
+
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link className="link" to="/about">About</Link>
           </li>
         </ul>
       </nav>

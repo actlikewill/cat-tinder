@@ -12,6 +12,11 @@ header p, header a {
   text-decoration: none;
 }
 
+.link:hover {
+  text-decoration: underline;
+  color: #00bcd4;
+}
+
 nav ul li {
   list-style-type: none;
   padding: 1rem;
@@ -26,4 +31,9 @@ header {
   padding: 1rem;
   font-weight: bold;
   text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: underline;
+  color: #d47a30;
 }
