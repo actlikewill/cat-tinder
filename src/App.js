@@ -10,7 +10,8 @@ const App = () => {
 
   const routes = [
     { path: '/', element: <Pages.Home /> },
-    { path: '/about', element: <Pages.About /> }
+    { path: '/about', element: <Pages.About /> },
+    { path: '/likes', element: <Pages.Likes /> }
   ]
 
 

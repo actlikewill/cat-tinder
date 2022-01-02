@@ -2,6 +2,16 @@ header, nav ul {
   display: flex;
 }
 
+nav {
+  margin: 0 3rem;
+}
+
+header p, header a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 nav ul li {
   list-style-type: none;
   padding: 1rem;
@@ -12,6 +22,7 @@ header {
 }
 
 .logo {
+  margin:  1rem;
   padding: 1rem;
   font-weight: bold;
   text-decoration: none;

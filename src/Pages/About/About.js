@@ -1,9 +1,11 @@
-import { Header, MainLayout } from "../../Components"
+import { MainLayout } from "../../Components"
+import "./About.css"
+
 
 export const About = () => {
   return (
     <MainLayout>
-      <h1>About</h1>
+      <h1 className="about-heading">About</h1>
     </MainLayout>
   );
 }

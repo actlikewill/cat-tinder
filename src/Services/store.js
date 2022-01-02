@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit"
-import  profile from "./profile"
+import  { catProfileSlice  } from "./profile"
+import { getVotesSlice } from "./votes"
 
 export const store = configureStore({
   reducer: {
-    profile
+    profile: catProfileSlice.reducer,
+    votes: getVotesSlice.reducer
   },
 })

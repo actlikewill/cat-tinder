@@ -1,0 +1,82 @@
+.profile-container {
+  display: flex;
+}
+
+.vote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30rem;
+  margin: 0 2rem;
+}
+
+.vote-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: 2px solid #fff;
+}
+
+.vote-container button {
+  margin: 1rem
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 31rem;
+}
+
+.profile-name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.image {
+  width: 31rem;
+}
+
+.profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 31rem;
+}
+
+.loading {
+  padding: 5rem;
+  color: white;
+}
+
+.next-button {
+  width: 100%;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: .5rem 1rem;
+}
+
+.vote-button {
+  padding:.5rem 0;
+  color: white;
+  background-color: inherit;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.vote-count {
+  font-weight: bold;
+  color: #fff;
+}
+

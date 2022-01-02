@@ -26,9 +26,6 @@ export const catProfileSlice = createSlice({
     [getProfile.rejected]: (state, action) => {
       state.status = 'failed'
     }
-
   }
 })
 
-
-export default catProfileSlice.reducer
